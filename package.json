@@ -1,6 +1,6 @@
 {
   "name": "stimulus-remote-rails",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "A Stimulus controller to handle Rails UJS events.",
   "repository": "git@github.com:stimulus-components/stimulus-remote-rails.git",
   "author": "Guillaume Briday <guillaumebriday@gmail.com>",
