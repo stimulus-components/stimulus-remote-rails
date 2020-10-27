@@ -31,10 +31,12 @@ In your controller:
 ```ruby
 class CommentsController < ApplicationController
   def create
-    if @comment.update(comment_params)
+    @comment = Comment.new(comment_params)
+
+    if @comment.save
       render @comment
     else
-      render partial: 'comments/form', status: :unprocessable_entity
+      render partial: 'comments/form', locals: { comment: @comment }, status: :unprocessable_entity
     end
   end
 
