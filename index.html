@@ -10,6 +10,11 @@
 
     <script type="module" defer>
       import Remote from './src/index.js'
+      import Rails from '@rails/ujs'
+
+      if (!window._rails_loaded) {
+        Rails.start()
+      }
 
       const application = Stimulus.Application.start()
       application.register('remote', Remote)
@@ -87,6 +92,25 @@
           </a>
         </li>
       </ul>
+
+      <section class="mt-16">
+        <div class="mb-8">
+          <a href="/message.html" data-controller="remote" data-remote="" data-action="ajax:success->remote#prepend">
+            Click me to prepend ☝️
+          </a>
+        </div>
+        <div class="mb-8">
+          <a href="/message.html" data-controller="remote" data-remote="" data-action="ajax:success->remote#append">
+            Click me to append 👇
+          </a>
+        </div>
+
+        <div>
+          <a href="/message.html" data-controller="remote" data-remote="" data-action="ajax:success->remote#replace">
+            Click me to replace 👈
+          </a>
+        </div>
+      </section>
     </div>
   </body>
 </html>

@@ -66,7 +66,18 @@ In your view:
 <% end %>
 ```
 
-You can use `append` or `replace` methods with the events of your choice.
+With a `link_to`:
+```ruby
+<%= link_to 'Click me to append content', content_path, remote: true, data: { controller: 'remote', action: 'ajax:success->remote#append' } %>
+
+<%= link_to 'Click me to prepend content', content_path, remote: true, data: { controller: 'remote', action: 'ajax:success->remote#prepend' } %>
+
+<%= link_to 'Click me to replace content', content_path, remote: true, data: { controller: 'remote', action: 'ajax:success->remote#replace' } %>
+```
+
+You can use `append`, `prepend` or `replace` methods with the events of your choice.
+
+**Don't forget to add the `remote: true` attribute in your `link_to`!**
 
 You can use it with all [remote elements available in Rails UJS](https://guides.rubyonrails.org/working_with_javascript_in_rails.html#remote-elements).
 
