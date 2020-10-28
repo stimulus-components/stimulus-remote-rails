@@ -6,6 +6,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.1.0] - 2020-10-28
+## Added
+- Adding prepend method
+
+## Changed
+- Using `afterend` hook in append method
+
 ## [1.0.0] - 2020-10-15
 
 ### Added
