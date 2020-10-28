@@ -12,6 +12,13 @@ export default class extends Controller {
     event.preventDefault()
 
     const [, , xhr] = event.detail
-    this.element.insertAdjacentHTML('beforeend', xhr.response)
+    this.element.insertAdjacentHTML('afterend', xhr.response)
+  }
+
+  prepend (event) {
+    event.preventDefault()
+
+    const [, , xhr] = event.detail
+    this.element.insertAdjacentHTML('beforebegin', xhr.response)
   }
 }
