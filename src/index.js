@@ -5,7 +5,7 @@ export default class extends Controller {
     event.preventDefault()
 
     const [, , xhr] = event.detail
-    this.element.innerHTML = xhr.response
+    this.element.outerHTML = xhr.response
   }
 
   append (event) {
