@@ -10,115 +10,14 @@
 
 A Stimulus controller to handle [Rails UJS events](https://guides.rubyonrails.org/working_with_javascript_in_rails.html#rails-ujs-event-handlers).
 
-## Installation
+## 📚 Documentation
 
-```bash
-$ yarn add stimulus-remote-rails
-```
+See [stimulus-remote-rails documentation](https://stimulus-components.netlify.app/docs/components/stimulus-remote-rails/).
 
-And use it in your JS file:
-```js
-import { Application } from "stimulus"
-import Remote from "stimulus-remote-rails"
-
-const application = Application.start()
-application.register("remote", Remote)
-```
-
-## Usage
-
-In your controller:
-```ruby
-class CommentsController < ApplicationController
-  def create
-    @comment = Comment.new(comment_params)
-
-    if @comment.save
-      render @comment
-    else
-      render partial: 'comments/form', locals: { comment: @comment }, status: :unprocessable_entity
-    end
-  end
-
-  private
-
-  def comment_params
-    params
-      .require(:comment)
-      .permit(:content)
-  end
-end
-```
-
-In your view:
-```ruby
-<%= form_with model: @comment, data: { controller: 'remote', action: 'ajax:success->remote#append ajax:error->remote#replace' } do |f| %>
-  <% if f.object.errors.any? %>
-    <% f.object.errors.full_messages.each do |error| %>
-      <p><%= error %></p>
-    <% end %>
-  <% end %>
-
-  <%= f.label :content %>
-  <%= f.text_field :content %>
-
-  <%= f.submit 'Save comment' %>
-<% end %>
-```
-
-With a `link_to`:
-```ruby
-<%= link_to 'Click me to append content', content_path, remote: true, data: { controller: 'remote', action: 'ajax:success->remote#append' } %>
-
-<%= link_to 'Click me to prepend content', content_path, remote: true, data: { controller: 'remote', action: 'ajax:success->remote#prepend' } %>
-
-<%= link_to 'Click me to replace content', content_path, remote: true, data: { controller: 'remote', action: 'ajax:success->remote#replace' } %>
-```
-
-You can use `append`, `prepend` or `replace` methods with the events of your choice.
-
-**Don't forget to add the `remote: true` attribute in your `link_to`!**
-
-You can use it with all [remote elements available in Rails UJS](https://guides.rubyonrails.org/working_with_javascript_in_rails.html#remote-elements).
-
-## Extending Controller
-
-You can use inheritance to extend the functionality of any Stimulus component:
-
-```js
-import Remote from "stimulus-remote-rails"
-
-export default class extends Remote {
-  connect() {
-    super.connect()
-    console.log("Do what you want here.")
-  }
-}
-```
-
-These controllers will automatically have access to targets defined in the parent class.
-
-If you override the `connect`, `disconnect` or any other methods from the parent, you'll want to call `super.method()` to make sure the parent functionality is executed.
-
-## Development
-
-### Project setup
-```bash
-$ yarn install
-$ yarn dev
-```
-
-### Linter
-[Prettier](https://prettier.io/) and [ESLint](https://eslint.org/) are responsible to lint and format this component:
-```bash
-$ yarn lint
-$ yarn format
-```
-
-## Contributing
+## 👷‍♂️ Contributing
 
 Do not hesitate to contribute to the project by adapting or adding features ! Bug reports or pull requests are welcome.
 
-## License
+## 📝 License
 
 This project is released under the [MIT](http://opensource.org/licenses/MIT) license.
