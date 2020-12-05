@@ -6,6 +6,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.0.0] - 2020-12-05
+
+### Added
+
+- Support for Stimulus 2.0
+
 ## [1.1.1] - 2020-11-03
 ### Changed
 - Changing `innerHTML` to `outerHTML` in the replace method.
