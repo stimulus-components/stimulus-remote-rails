@@ -1,24 +1,28 @@
 import { Controller } from 'stimulus'
 
 export default class extends Controller {
-  replace (event) {
+  // @ts-ignore
+  element: HTMLElement
+
+  replace (event: CustomEvent): void {
     event.preventDefault()
 
     const [, , xhr] = event.detail
     this.element.outerHTML = xhr.response
   }
 
-  append (event) {
+  append (event: CustomEvent): void {
     event.preventDefault()
 
     const [, , xhr] = event.detail
     this.element.insertAdjacentHTML('afterend', xhr.response)
   }
 
-  prepend (event) {
+  prepend (event: CustomEvent): void {
     event.preventDefault()
 
     const [, , xhr] = event.detail
+
     this.element.insertAdjacentHTML('beforebegin', xhr.response)
   }
 }
