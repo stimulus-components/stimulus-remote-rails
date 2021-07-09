@@ -14,6 +14,7 @@ export default class extends Controller {
 
   append (event: CustomEvent): void {
     event.preventDefault()
+    event.stopPropagation()
 
     const [, , xhr] = event.detail
     this.element.insertAdjacentHTML('afterend', xhr.response)
@@ -21,6 +22,7 @@ export default class extends Controller {
 
   prepend (event: CustomEvent): void {
     event.preventDefault()
+    event.stopPropagation()
 
     const [, , xhr] = event.detail
 
