@@ -6,6 +6,7 @@ export default class extends Controller {
 
   replace (event: CustomEvent): void {
     event.preventDefault()
+    event.stopPropagation()
 
     const [, , xhr] = event.detail
     this.element.outerHTML = xhr.response
