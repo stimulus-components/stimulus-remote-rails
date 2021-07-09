@@ -6,6 +6,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [3.0.1] - 2021-07-09
+
+### Changed
+
+- Adding stopPropagation on all methods
+
 ## [3.0.0] - 2021-05-17
 
 ### Chore
