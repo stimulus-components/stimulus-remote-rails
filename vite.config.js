@@ -21,10 +21,10 @@ export default ({ mode }) => {
         name: 'stimulus-remote-rails'
       },
       rollupOptions: {
-        external: ['stimulus'],
+        external: ['@hotwired/stimulus'],
         output: {
           globals: {
-            stimulus: 'Stimulus'
+            '@hotwired/stimulus': 'Stimulus'
           }
         }
       }
