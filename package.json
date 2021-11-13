@@ -1,6 +1,6 @@
 {
   "name": "stimulus-remote-rails",
-  "version": "3.0.1",
+  "version": "4.0.0",
   "description": "A Stimulus controller to handle Rails UJS events.",
   "keywords": [
     "stimulus",
