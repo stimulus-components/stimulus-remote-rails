@@ -1,10 +1,7 @@
-import { Controller } from '@hotwired/stimulus'
+import { Controller } from "@hotwired/stimulus"
 
-export default class extends Controller {
-  // @ts-ignore
-  element: HTMLElement
-
-  replace (event: CustomEvent): void {
+export default class RemoteRails extends Controller<HTMLElement> {
+  replace(event: CustomEvent): void {
     event.preventDefault()
     event.stopPropagation()
 
@@ -12,20 +9,20 @@ export default class extends Controller {
     this.element.outerHTML = xhr.response
   }
 
-  append (event: CustomEvent): void {
+  append(event: CustomEvent): void {
     event.preventDefault()
     event.stopPropagation()
 
     const [, , xhr] = event.detail
-    this.element.insertAdjacentHTML('afterend', xhr.response)
+    this.element.insertAdjacentHTML("afterend", xhr.response)
   }
 
-  prepend (event: CustomEvent): void {
+  prepend(event: CustomEvent): void {
     event.preventDefault()
     event.stopPropagation()
 
     const [, , xhr] = event.detail
 
-    this.element.insertAdjacentHTML('beforebegin', xhr.response)
+    this.element.insertAdjacentHTML("beforebegin", xhr.response)
   }
 }
