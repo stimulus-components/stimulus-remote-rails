@@ -1,9 +1,0 @@
-[build]
-  publish="dist"
-  command="yarn prod"
-
-[[redirects]]
-  from = "https://stimulus-remote-rails.netlify.app/*"
-  to = "https://stimulus-remote-rails.stimulus-components.com/:splat"
-  status = 301
-  force = true
